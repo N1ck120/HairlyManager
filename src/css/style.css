@@ -1,0 +1,26 @@
+.card {
+    margin: 8% auto auto auto;
+    border-radius: 20px;
+}
+
+.botao-voltar{
+    background-color: transparent;
+    border: none;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.img-botao-voltar{
+    width: 30px;
+}
+
+.botao-config{
+    background-color: transparent;
+    border: none;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.img-botao-config{
+    width: 30px;
+}
