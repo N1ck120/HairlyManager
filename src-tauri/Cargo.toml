@@ -1,6 +1,6 @@
 [package]
-name = "ProjectHM"
-version = "0.0.0"
+name = "project_hm"
+version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
 license = ""

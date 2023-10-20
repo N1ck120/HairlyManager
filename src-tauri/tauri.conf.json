@@ -7,8 +7,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "ProjectHM",
-    "version": "0.0.0"
+    "productName": "project_hm",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -37,9 +37,11 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "ProjectHM",
+        "title": "Project HM",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "minWidth": 800,
+        "minHeight": 600
       }
     ]
   }

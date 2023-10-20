@@ -12,9 +12,9 @@
   </head>
   <body>
     <button class="botao-config" onclick="config()">
-      <img class="img-botao-config" src="assets/bootstrap-icons/gear.svg">
+      <img class="img-botao-config" src="assets/bootstrap-icons/gear-wide-connected.svg">
   </button>
-    <div class="card" style="width: 25rem;">
+    <div class="card">
       <div class="card-body">
         <h3 align="center" class="mb-3">Bem vindo</h3>
         <div class="form-floating mb-2">
@@ -22,7 +22,7 @@
           <label for="email">Email</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="password" class="form-control mb-2" id="pass" placeholder="Password">
+          <input type="password" class="form-control mb-2" id="pass" oncopy="return false" oncut="return false" placeholder="Password">
           <label for="pass">Senha</label>
           <div id="errologin" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
             <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
