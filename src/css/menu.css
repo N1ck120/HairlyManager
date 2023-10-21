@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/*MENU =====================================================================*/
+
+header {
+    box-shadow: 0px 3px 10px #464646;
+    background-color: white;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 25px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: gray;
+    font-weight: 400;
+}
+
+.login button {
+    border: none;
+    background-color:#464646;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.icon {
+        width: 30px;
+    }
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/*MENU RESPONSIVO===============================================================*/
+
+@media screen and (max-width: 850px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+
+    .nav-item {
+        display: none;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+
+    .mobile-menu .login {
+        display: block;
+        padding: 1rem 2rem;
+    }
+
+    .mobile-menu .login button {
+        width: 100%;
+    }
+
+    .open {
+        display: block;
+    }
+}

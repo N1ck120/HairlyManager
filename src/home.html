@@ -1,24 +1,74 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link CSS-->
     <link href="css/style_index.css" rel="stylesheet" type="text/css"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/menu.css">
+
+    <!--Link Boorstrap-->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!--Script JavaScript-->
     <script src="js/actions.js"></script>
     <script src="js/account.js"></script>
+    <script src="js/menu.js"></script>
+
     <title>Hairly Manager - Home</title>
 </head>
+
 <body>
-    <button class="botao-voltar">
-        <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
-    </button>
-    <div class="card-body">
-        <h3 align="center" class="mb-3">Visão Geral</h3>
-        
-      </div>
-        
+    <header>
+        <nav class="nav-bar">
+            <button class="botao-voltar">
+                <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
+            </button>
+
+            <div class="logo">
+                <h1>Hairly Manager</h1>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="color: black;">Home</a></li>
+                    <li class="nav-item"><a href="livros.html" class="nav-link">Agenda</a></li>
+                    <li class="nav-item"><a href="musicas.html" class="nav-link">Finanças</a></li>
+                    <li class="nav-item"><a href="filmes.html" class="nav-link">Funcionários</a></li>
+                </ul>
+            </div>
+
+            <div class="login">
+                <form action="login.html">
+                    <button>Entrar</button>
+                </form>
+            </div>
+
+            <div class="mobile-menu-icon">
+                <button onclick="showMenu()">
+                    <img src="img/menu.png" alt="" class="icon">
+                </button>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="index.html" class="nav-link" style="color: black;">Home</a></li>
+                <li class="nav-item"><a href="livros.html" class="nav-link">Agenda</a></li>
+                <li class="nav-item"><a href="musicas.html" class="nav-link">Finanças</a></li>
+                <li class="nav-item"><a href="filmes.html" class="nav-link">Funcionários</a></li>
+            </ul>
+            
+            <div class="login">
+                <form action="login.html">
+                    <button>Entrar</button>
+                </form>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
