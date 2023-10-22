@@ -2,7 +2,6 @@ function offline() {
     window.location.href = 'home.html';
 }
 
-
 function login(email, pass) {
     //Login hardcoded para testes
     if(email == "admin" && pass == "admin"){

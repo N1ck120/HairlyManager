@@ -8,9 +8,10 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="js/actions.js"></script>
     <script src="js/account.js"></script>
+    <script src="js/dark.js"></script>
     <title>Hairly Manager - Cadastro</title>
   </head>
-  <body>
+  <body id="bkg">
     <button class="botao-voltar">
         <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
     </button>
@@ -48,5 +49,8 @@
         <button type="button" class="btn btn-outline-primary" onclick="signup(document.getElementById('name').value, document.getElementById('email').value, document.getElementById('pass1').value, document.getElementById('pass2').value)">Cadastrar</button>
       </div>
     </div>
+    <script>
+      window.onload = dark();
+    </script>
   </body>
 </html>

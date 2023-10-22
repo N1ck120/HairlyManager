@@ -8,11 +8,12 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="js/actions.js"></script>
     <script src="js/account.js"></script>
+    <script src="js/dark.js"></script>
     <title>Hairly Manager</title>
   </head>
-  <body>
+  <body id="bkg"">
     <button class="botao-config" onclick="config()">
-      <img class="img-botao-config" src="assets/bootstrap-icons/gear-wide-connected.svg">
+      <img class="img-botao-config" id="a" src="assets/bootstrap-icons/gear-wide-connected.svg">
   </button>
     <div class="card">
       <div class="card-body">
@@ -43,10 +44,13 @@
             </label>
           </div>          
           <button onclick="login(document.getElementById('email').value, document.getElementById('pass').value)" type="button" class="btn btn-outline-primary">Login</button>
-          <button onclick="offline()" type="button" class="btn btn-outline-dark ">Usar offline</button>
+          <button onclick="offline()" type="button" class="btn btn-outline-warning">Usar offline</button>
           <div>Não tem uma conta? <a href="signup.html">Cadastre-se!</a></div>
         </div>
       </div>
     </div>
+    <script>
+      window.onload = dark();
+    </script>
   </body>
 </html>

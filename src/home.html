@@ -9,9 +9,10 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="js/actions.js"></script>
     <script src="js/account.js"></script>
+    <script src="js/dark.js"></script>
     <title>Hairly Manager - Home</title>
 </head>
-<body>
+<body id="bkg">
     <button class="botao-voltar">
         <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
     </button>
@@ -19,6 +20,8 @@
         <h3 align="center" class="mb-3">Visão Geral</h3>
         
       </div>
-        
+      <script>
+        window.onload = dark();
+      </script>        
 </body>
 </html>

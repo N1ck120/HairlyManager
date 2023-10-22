@@ -6,9 +6,11 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="js/actions.js"></script>
+    <script src="js/dark.js"></script>
+    <script src="js/conf.js"></script>
     <title>Hairly Manager</title>
   </head>
-  <body>
+  <body id="bkg">
     <button class="botao-voltar">
         <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
     </button>
@@ -17,7 +19,7 @@
         <h3 align="center" class="mb-3">Configurações</h3>
         <div style="margin: 25px;">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="switch1">
+            <input class="form-check-input" type="checkbox" role="switch" id="switch1" onclick="darkpref()">
             <label class="form-check-label" for="switch1">Tema escuro</label>
           </div>
           <div class="form-check form-switch">
@@ -28,10 +30,20 @@
             <input class="form-check-input" type="checkbox" role="switch" id="switch3">
             <label class="form-check-label" for="switch3">Default switch checkbox input</label>
           </div>
-        </div>        
+          <button type="button" class="btn btn-outline-danger" style="margin-top:15px;" onclick="reset()">Resetar dados</button>
+          
+          <div id="deletedalert" style="display: none; margin-top: 10px;" class="alert alert-danger align-items-center" role="alert">
+            <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
+            <div style="display: inline;">
+              Dados deletados! Recarregando...
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <script>
+      window.onload = restoreswitch();
+      window.onload = dark();
+    </script>
   </body>
 </html>
