@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="css/style_index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/dark.js"></script>
+    <title>Hairly Manager - Cadastro</title>
+  </head>
+  <body id="bkg">
+    <button class="botao-voltar">
+        <img class="img-botao-voltar" src="assets/bootstrap-icons/chevron-left.svg">
+    </button>
+    <div class="card">
+      <div class="card-body">
+        <form action="/cadastro" method="POST"">
+          <input type="text" class="form-control mb-3" name="name" id="name" placeholder="Seu nome" required>
+          <input type="email" class="form-control mb-3" name="email" id="email" placeholder="name@example.com" required>
+          <input type="password" class="form-control mb-3" name="pass1" id="pass1" placeholder="Senha" required>
+
+          <!--
+          <input type="password" class="form-control mb-3" name="pass2" id="pass2" placeholder="Repita sua senha">
+          <div id="errormsg" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
+            <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
+            <div id="errormsgtxt" style="display: inline;">
+            </div>
+          </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="showpass1" onclick="showpass1()">
+              <label class="form-check-label" for="showpass1">
+                Mostrar senha
+              </label>
+            </div>-->
+          <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      window.onload = dark();
+    </script>
+  </body>
+</html>

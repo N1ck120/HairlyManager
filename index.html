@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="css/style_index.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/dark.js"></script>
+    <title>Hairly Manager</title>
+  </head>
+  <body id="bkg"">
+    <button class="botao-config" onclick="config()">
+      <img class="img-botao-config" id="a" src="assets/bootstrap-icons/gear-wide-connected.svg">
+  </button>
+    <div class="card">
+      <div class="card-body">
+        <h3 align="center" class="mb-3">Bem vindo</h3>
+
+        <form action="/login" method="POST"">
+          <input type="email" class="form-control mb-3" name="email" id="email" placeholder="name@example.com" required>
+          <input type="password" class="form-control mb-3" name="pass1" id="pass1" placeholder="Senha" required>
+          <button type="submit" class="btn btn-outline-primary">Login</button>
+        </form>
+        <button onclick="offline()" type="button" class="btn btn-outline-warning">Usar offline</button>
+
+
+        <!--
+        <div class="form-floating mb-2">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="password" class="form-control mb-2" id="pass" oncopy="return false" oncut="return false" placeholder="Password">
+          <label for="pass">Senha</label>
+          <div id="errologin" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
+            <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
+            <div style="display: inline;">
+              Erro! Usuario ou senha incorretos
+            </div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="showpass" onclick="showpass()">
+            <label class="form-check-label" for="showpass">
+              Mostrar senha
+            </label>
+          </div>          
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" value="" id="keepsigned">
+            <label class="form-check-label" for="keepsigned">
+              Manter logado
+            </label>
+          </div>          
+          <button onclick="login(document.getElementById('email').value, document.getElementById('pass').value)" type="button" class="btn btn-outline-primary">Login</button>
+          <button onclick="offline()" type="button" class="btn btn-outline-warning">Usar offline</button>-->
+          <div>Não tem uma conta? <a href="cadastrar">Cadastre-se!</a></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.onload = dark();
+    </script>
+  </body>
+</html>
