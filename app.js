@@ -24,6 +24,10 @@ app.get('/config', function(req, res) {
   res.sendFile(__dirname + '/config.html')
 })
 
+app.get('/colab', function(req, res) {
+  res.sendFile(__dirname + '/colaboradores.html')
+})
+
 app.get('/finance', function(req, res) {
   res.sendFile(__dirname + '/finance.html')
 })
