@@ -7,7 +7,7 @@
   <link href="/css/card.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
-  <script src="/js/signup.js"></script>
+  <script src="/js/editusr.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
   <title>Signup</title>
@@ -18,23 +18,27 @@
     <div class="card">
       <div class="card-body">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="name" placeholder="name@example.com">
-          <label for="floatingInput">Nome</label>
+          <input type="text" class="form-control" id="name" placeholder="name@example.com" disabled>
+          <label for="floatingInputDisabled">Nome</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com">
-          <label for="floatingInput">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com" disabled>
+          <label for="floatingInputDisabled">Email</label>
         </div>
         <div class="form-floating mb-3">
           <input type="password" class="form-control" id="pass" placeholder="Password">
-          <label for="floatingPassword">Crie uma senha</label>
+          <label for="floatingPassword">Sua senha atual</label>
         </div>
         <div class="form-floating mb-3">
           <input type="password" class="form-control" id="pass1" placeholder="Password">
-          <label for="floatingPassword">Repita sua senha</label>
+          <label for="floatingPassword">Nova senha</label>
         </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="pass2" placeholder="Password">
+            <label for="floatingPassword">Repita sua senha</label>
+          </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" value="" id="showpass" onclick="showpass()">
+          <input class="form-check-input" type="checkbox" value="" id="showpass" onclick="showpass1()">
           <label class="form-check-label" for="showpass">
             Mostrar senha
           </label>
@@ -52,7 +56,7 @@
           </div>
         </div>
 
-        <button type="button" class="btn btn-outline-primary" onclick="enviarDados()">Cadastrar</button>
+        <button type="button" class="btn btn-outline-primary" onclick="changePass()">Cadastrar</button>
       </div>
     </div>
   </div>

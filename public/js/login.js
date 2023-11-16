@@ -1,17 +1,3 @@
-function showpass() {
-  var pass1 = document.getElementById("pass");
-  var pass2 = document.getElementById("pass1");
-  var showPass = document.getElementById("showpass");
-
-  if(showPass.checked) {
-    pass1.type = "text";
-    pass2.type = "text";
-  }else{
-    pass1.type = "password";
-    pass2.type = "password";
-  }
-}
-
 function criarCookie(nome, valor, dias) {
   if (dias) {
       var data = new Date();

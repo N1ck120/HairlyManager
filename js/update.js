@@ -1,15 +1,14 @@
 const connection = require('./connection')
 
-function update(nome, tipo, id) {
-    const sql = 'UPDATE Jogo SET ? WHERE id_jogo = ?';
-    const values = {nm_jogo: nome, tipo_jogo: tipo};
+function updatePass(pass, id) {
+    const sql = 'UPDATE usr SET pass = ? WHERE id_usr = ?';
 
-    connection.query(sql, [values, id], function(error, results, fields) {
+    connection.query(sql, [pass, id], function(error, results, fields) {
         if (error) throw error
         console.log('Registro atualizado com sucesso.');
     });
 
-    connection.end()
+    //connection.end()
 }
 
-exports.update = update
+exports.updatePass = updatePass

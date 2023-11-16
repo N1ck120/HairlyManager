@@ -53,6 +53,10 @@ app.get('/employees',verifyToken, function(req, res) {
 app.get('/finance',verifyToken, function(req, res) {
     res.sendFile(__dirname + '/finance.html');
 });
+
+app.get('/editusr',verifyToken, function(req, res) {
+  res.sendFile(__dirname + '/editusr.html');
+});
   
 app.get('/index',verifyToken, function(req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -74,6 +78,7 @@ const insert = require('./js/insert')
 const verifyemail = require('./js/select')
 const gethash = require('./js/select')
 const connection = require('./js/connection')
+const updatePass = require('./js/update')
 
 async function gerarHash(senha) {
   try {
@@ -161,23 +166,38 @@ app.post('/login', (req, res) => {
   });
 });
 
+//Atualizar senha
+app.post('/editusr', async (req, res) => {
+  const pass = req.body.pass;
+  const pass1 = req.body.pass1;
 
-
-app.use((req, res, next) => {
-  // Obtenha o token do cabeçalho de autorização
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (!token) return res.sendStatus(401); // Se não houver token, retorne um erro
-
-  // Verifique a validade do token
-  jwt.verify(token, secret, (err, user) => {
-    if (err) return res.sendStatus(403); // Se o token não for válido, retorne um erro
-
-    req.user = user; // Salve as informações do usuário na solicitação
-
-    next(); // Continue para a próxima rota
-  });
+  try {
+    const passhash1 = await gerarHash(pass1);
+    //const tokenedit = decodeToken(req.cookies['token']);
+    const tokenedit = jwt.decode(req.cookies['token']);
+    console.log("Token: "+ tokenedit.id);
+    connection.query('SELECT * FROM usr WHERE id_usr = ?', [tokenedit.id], async (error, users) => {
+      if (error) {
+        return res.json({ success: false, message: 'Database query failed' });
+      }
+      const user = users[0];
+      if (await argon2.verify(user.pass, pass)) {
+        try {
+          updatePass.updatePass(passhash1, tokenedit.id);
+          return res.json({ success: 0 });
+        } catch (err) {
+          console.error(err);
+          res.status(500).send('Erro no servidor');
+        }
+      } else {
+        console.log("Senha incorreta");
+        res.json({ success: 1 });
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
 });
 
 //ERROR 404
