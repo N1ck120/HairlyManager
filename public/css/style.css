@@ -1,0 +1,20 @@
+.cardlink {
+    text-decoration: none;
+}
+
+.cardlhover {
+    transition: 0.5s;
+}
+
+.cardlhover:hover {
+    transition: 0.5s;
+    background-color: rgba(143, 143, 143, 0.096);
+    transform: scale(1.1)
+}
+
+.card {
+    margin: auto auto;
+    width: 60%;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+}
+

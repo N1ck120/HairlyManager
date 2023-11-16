@@ -46,11 +46,11 @@ app.listen(port, () => {
   console.log('Example app listening on port ' + port);
 });
 
-app.get('/employees', function(req, res) {
+app.get('/employees',verifyToken, function(req, res) {
     res.sendFile(__dirname + '/employees.html');
 });
   
-app.get('/finance', function(req, res) {
+app.get('/finance',verifyToken, function(req, res) {
     res.sendFile(__dirname + '/finance.html');
 });
   
@@ -179,9 +179,6 @@ app.use((req, res, next) => {
     next(); // Continue para a próxima rota
   });
 });
-
-
-
 
 //ERROR 404
 app.get('*', (req, res) => {
