@@ -202,6 +202,6 @@ app.post('/editusr', async (req, res) => {
 
 //ERROR 404
 app.get('*', (req, res) => {
-    res.send("<h1>404 Página não encontrada!</h1>");
+  res.sendFile(__dirname + '/404.html');
 });
 

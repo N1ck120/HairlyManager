@@ -1,4 +1,3 @@
-// Função para fazer a requisição HTTP
 function changePass() {
     let pass = document.getElementById('pass').value;
     let pass1 = document.getElementById('pass1').value;
@@ -42,3 +41,32 @@ function changePass() {
         }
     }
   }
+
+
+
+
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+  
+function jwtDecode(t) {
+    let token = {};
+    token.raw = t;
+    token.header = JSON.parse(window.atob(t.split('.')[0]));
+    token.payload = JSON.parse(window.atob(t.split('.')[1]));
+    return token;
+}
+  
+function getTokenInfo(){
+    let tinfo = jwtDecode(getCookie("token"));
+    console.log(tinfo);
+    return tinfo.payload;
+}
+
+function loadInfo(){
+    document.getElementById("name").textContent = (getTokenInfo()).name;
+    document.getElementById("email").textContent = (getTokenInfo()).email;
+}

@@ -37,7 +37,7 @@ function enviarDados() {
           document.getElementById("errormsg").style.display = "none";
           document.getElementById("sucessmsg").style.display = "block";
           document.getElementById("sucessmsgtxt").textContent= "Cadastrado com sucesso! Redirecionando...";
-          setTimeout(function(){ location.href = '/login'; }, 2000);
+          setTimeout(function(){ window.location.replace("/login"); }, 2000);
         })
         .catch((response) => {
           // Verifique o status da resposta

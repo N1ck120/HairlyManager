@@ -10,20 +10,21 @@
   <script src="/js/editusr.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
-  <title>Signup</title>
+  <title>User</title>
  </head>
  <body>
   <div class="background" id="bkgd" style="background-image: url(/imagens/1.jpeg);"></div>
   <div class="content">
     <div class="card">
       <div class="card-body">
+        <p style="text-align: center;">Atualizar cadasto</p>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="name" placeholder="name@example.com" disabled>
-          <label for="floatingInputDisabled">Nome</label>
+          <input type="text" class="form-control" placeholder="name@example.com" disabled>
+          <label for="floatingInputDisabled" id="name">Nome</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com" disabled>
-          <label for="floatingInputDisabled">Email</label>
+          <input type="email" class="form-control" placeholder="name@example.com" disabled>
+          <label for="floatingInputDisabled" id="email">Email</label>
         </div>
         <div class="form-floating mb-3">
           <input type="password" class="form-control" id="pass" placeholder="Password">
@@ -63,6 +64,7 @@
   <script>
     window.onload = function() {
       randimg();
+      loadInfo();
     }
   </script>    
  </body>
