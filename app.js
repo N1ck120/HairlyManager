@@ -30,10 +30,11 @@ function verifyToken(req, res, next) {
           // Redirecionar para a página 401
           return res.status(401).redirect('/401');
       }
-      req.userId = decoded.id;
+      // req.userId = decoded.id;
       next();
   });
 }
+
 
 function decodeToken(token) {
   const decoded = jwt.decode(token);
