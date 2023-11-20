@@ -24,37 +24,29 @@
           <input type="email" class="form-control" id="email" placeholder="name@example.com">
           <label for="floatingInput">Email</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="pass" placeholder="Password">
-          <label for="floatingPassword">Senha</label>
+        <div style="display: flex; align-items: center;" class="mb-3">
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <label for="floatingPassword">Senha</label>
+          </div>
+          <button style="background: none; border: none;" id="showpass" class="button" onclick="showpass()">
+            <img id="eye" src="/assets/bootstrap-icons/eye-slash.svg" alt="sair" width="25px">
+          </button>
         </div>
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" value="" id="showpass" onclick="showpass()">
-          <label class="form-check-label" for="showpass">
-            Mostrar senha
-          </label>
-        </div>
-
         <div id="errormsg" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
           <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
           <div id="errormsgtxt" style="display: inline;">
           </div>
         </div>
-
         <div id="sucessmsg" style="display: none; margin-bottom: 5px;" class="alert alert-success align-items-center" role="alert">
           <img class="img-botao-config" src="assets/bootstrap-icons/check2-circle.svg" style="width: 20px; margin-right: 5px;">
           <div id="sucessmsgtxt" style="display: inline;">
           </div>
         </div>
-
         <div style="text-align: center; padding-left: 10px; padding-right: 10px;">
           <button style="--bs-btn-padding-x: 5rem;" type="button" class="btn btn-outline-primary" onclick="login()" >Login</button>
+          <div class="form-text">Não tem uma conta? <a id="cad" href="/signup">Cadastre-se!</a></div>
         </div>
-
-        
-
-        <div class="form-text">Não tem uma conta? <a id="cad" href="/signup">Cadastre-se!</a></div>
-        
       </div>
     </div>
   </div>
