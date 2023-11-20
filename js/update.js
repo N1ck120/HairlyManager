@@ -7,8 +7,6 @@ function updatePass(pass, id) {
         if (error) throw error
         console.log('Registro atualizado com sucesso.');
     });
-
-    //connection.end()
 }
 
 exports.updatePass = updatePass

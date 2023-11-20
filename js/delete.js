@@ -7,8 +7,6 @@ function del(id) {
       if (error) throw error
       console.log('Registro apagado com sucesso.');
     });
-
-    connection.end()
 }
 
 exports.del = del

@@ -22,10 +22,7 @@ function select(email, pass, callback) {
 
         callback(null, dados); // Chame o callback com os dados
     });
-    
-    //connection.end();
 }
-
 
 function verifyemail(email,callback) {
     let sql = 'SELECT email FROM usr WHERE email = ?'
@@ -47,8 +44,6 @@ function verifyemail(email,callback) {
   
         callback(null, dados); // Chame o callback com os dados
     });
-    
-    //connection.end();
 }
 
 exports.select = select;

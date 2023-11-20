@@ -1,10 +1,10 @@
 function criarCookie(nome, valor, dias) {
   if (dias) {
-      var data = new Date();
-      data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-      var expira = "; expires=" + data.toGMTString();
+    var data = new Date();
+    data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
+    var expira = "; expires=" + data.toGMTString();
   } else {
-      var expira = "";
+    var expira = "";
   }
   document.cookie = nome + "=" + valor + expira + "; path=/";
 }
@@ -33,23 +33,23 @@ function login() {
       .then(response => response.json()) // transforma a resposta em JSON
       .then(data => {
         // Adicione suas ações aqui dependendo da resposta
-        if(data.success == 0) {
+      if(data.success == 0) {
 
-          document.getElementById("errormsg").style.display = "none";
-          criarCookie("token", data.token, 24);
-          window.location.replace("/index");
+        document.getElementById("errormsg").style.display = "none";
+        criarCookie("token", data.token, 24);
+        window.location.replace("/index");
 
-          // Ação se a resposta for bem-sucedida
-        } else if(data.success == 2){
+        // Ação se a resposta for bem-sucedida
+      } else if(data.success == 2){
 
-            console.log("dados: "+data)
-            document.getElementById("errormsg").style.display = "block";
-            document.getElementById("errormsgtxt").textContent= "Erro! Senha incorreta!";
-          // Ação se a resposta não for bem-sucedida
-        }else{
+          console.log("dados: "+data)
           document.getElementById("errormsg").style.display = "block";
-          document.getElementById("errormsgtxt").textContent= "Erro! Email não cadastrado!";
-        }
+          document.getElementById("errormsgtxt").textContent= "Erro! Senha incorreta!";
+        // Ação se a resposta não for bem-sucedida
+      }else{
+        document.getElementById("errormsg").style.display = "block";
+        document.getElementById("errormsgtxt").textContent= "Erro! Email não cadastrado!";
+      }
       })
       .catch((error) => {
         console.error('Error:', error);

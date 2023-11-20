@@ -205,4 +205,3 @@ app.post('/editusr', async (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/404.html');
 });
-

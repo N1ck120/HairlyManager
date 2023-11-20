@@ -10,8 +10,6 @@ function insert(nome, email, pass){
       console.log('Registro adicionado com sucesso.');
       return error
     });
-
-    //connection.end()
 }
 
 exports.insert = insert
