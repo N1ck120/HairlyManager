@@ -58,7 +58,15 @@ app.get('/finance',verifyToken, function(req, res) {
 app.get('/editusr',verifyToken, function(req, res) {
   res.sendFile(__dirname + '/editusr.html');
 });
-  
+
+app.get('/settings',verifyToken, function(req, res) {
+  res.sendFile(__dirname + '/settings.html');
+});
+
+app.get('/schedules',verifyToken, function(req, res) {
+  res.sendFile(__dirname + '/schedules.html');
+});
+
 app.get('/index',verifyToken, function(req, res) {
     res.sendFile(__dirname + '/index.html');
     decodeToken(req.cookies['token']);

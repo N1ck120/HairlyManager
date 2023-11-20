@@ -3,11 +3,99 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-  <title>Document</title>
+  <link rel="icon" href="/assets/img/icon.ico" type="image/x-icon">
+  <link href="/css/bkg.css" rel="stylesheet" type="text/css"/>
+  <link href="/css/other.css" rel="stylesheet" type="text/css"/>
+  <link href="/css/index.css" rel="stylesheet" type="text/css"/>
+  <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/finance.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/random.js"></script>
+  <title>Finance</title>
  </head>
  <body>
-    
+  <div class="background" id="bkgd" style="background-image: url(/imagens/1.jpeg);"></div>
+  <div class="content">
+    <nav class="navbar navbar-expand-lg" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">HairlyManager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+  
+            <button style="background: none; border: none;" id="logout" class="button" onclick="reset()">
+              <img src="/assets/bootstrap-icons/box-arrow-left.svg" alt="sair" width="30px">
+            </button>      
+  
+            <a href="/editusr" id="username" style="text-decoration: none;"></a>
+          </span>
+        </div>
+      </div>
+    </nav>
+    <h3 align="center" class="mb-3" style="color: white; margin-top: 20px;">Gestão financeira</h3>
+
+    <div class="card">
+        <div class="card-body">
+          <table class="table" style=" --bs-table-bg: hsla(0, 0%, 100%, 0); --bs-table-border-color: hsl(0, 0%, 0%);">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Corte masc</td>
+                <td>R$ 20</td>
+                <td><button style="background: none; border: none;" class="increase">-</button>1<button style="background: none; border: none;" class="increase">+</button></td>
+                <td>R$ 20</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Corte fem</td>
+                <td>R$ 40</td>
+                <td><button style="background: none; border: none;" class="increase">-</button>0<button style="background: none; border: none;" class="increase">+</button></td>
+                <td>R$ 0</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Lavagem</td>
+                <td>R$ 40</td>
+                <td><button style="background: none; border: none;" class="increase">-</button>0<button style="background: none; border: none;" class="increase">+</button></td>
+                <td>R$ 0</td>
+              </tr>
+            </tbody>
+           </table>
+          <h3 id="total" style="text-align: center;">Total: R$ 20.00</h3>
+        </div>
+      </div>
+    </div>
+  <script>
+    window.onload = function() {
+      randimg();
+      loadInfo();
+      updateTotal();
+    }
+  </script>
  </body>
 </html>

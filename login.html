@@ -3,6 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/assets/img/icon.ico" type="image/x-icon">
   <link href="/css/bkg.css" rel="stylesheet" type="text/css"/>
   <link href="/css/card.css" rel="stylesheet" type="text/css"/>
   <link href="/css/other.css" rel="stylesheet" type="text/css"/>
@@ -21,12 +22,12 @@
       <div class="card-body" >
         <p style="text-align: center;">Login</p>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com" maxlength="50">
           <label for="floatingInput">Email</label>
         </div>
         <div style="display: flex; align-items: center;" class="mb-3">
           <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
-            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <input type="password" class="form-control" id="pass" placeholder="Password" maxlength="100">
             <label for="floatingPassword">Senha</label>
           </div>
           <button style="background: none; border: none;" id="showpass" class="button" onclick="showpass()">
