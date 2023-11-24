@@ -1,13 +1,34 @@
-CREATE DATABASE hm;
+SHOW DATABASES;
+
+
+CREATE DATABASE IF NOT EXISTS hm;
 USE hm;
 
 CREATE TABLE usr(
-    id_usr INT	NOT NULL	AUTO_INCREMENT,
-    nm_usr    VARCHAR(90) NOT NULL,
-    email   VARCHAR(90) NOT NULL,
-    pass   VARCHAR(256) NOT NULL,
+	id_usr int AUTO_INCREMENT PRIMARY KEY,
+	nm_usr VARCHAR(50) NOT NULL,
+	email varchar(50) NOT NULL,
+	pass varchar(256) NOT NULL
+);
 
-    CONSTRAINT PK_User PRIMARY KEY(id_usr)
+CREATE TABLE service(
+	id_service int AUTO_INCREMENT PRIMARY KEY,
+	servico VARCHAR(50) NOT NULL,
+	preco DECIMAL(6,2) NOT NULL,
+	quant int NOT NULL
+);
+
+CREATE TABLE schedules(
+	id_schedules int AUTO_INCREMENT PRIMARY KEY,
+	horario TIME NOT NULL,
+    sc_data DATE NOT NULL,
+    sc_serv VARCHAR(50) NOT NULL,
+	preco DECIMAL(6,2) NOT NULL,
+	quant int NOT NULL
 );
 
 SELECT * FROM usr;
+
+TRUNCATE usr;
+
+DROP TABLE usr;

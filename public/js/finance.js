@@ -6,7 +6,7 @@ function updateTotal() {
         var rowTotal = parseFloat(rows[i].querySelector('td:nth-child(5)').innerText.replace('R$ ', ''));
         total += rowTotal;
     }
-    document.querySelector('h3').innerText = 'Total: R$ ' + total.toFixed(2);
+    document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
 }
 
 // Função para adicionar uma linha(Funciona mas ainda tenho que ver a logica pra adicionar valores diferentes a cada entrada do BD)
