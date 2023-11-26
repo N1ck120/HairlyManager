@@ -1,34 +1,41 @@
-SHOW DATABASES;
-
-
 CREATE DATABASE IF NOT EXISTS hm;
 USE hm;
 
 CREATE TABLE usr(
-	id_usr int AUTO_INCREMENT PRIMARY KEY,
+	id_usr INT AUTO_INCREMENT PRIMARY KEY,
 	nm_usr VARCHAR(50) NOT NULL,
 	email varchar(50) NOT NULL,
 	pass varchar(256) NOT NULL
 );
 
 CREATE TABLE service(
-	id_service int AUTO_INCREMENT PRIMARY KEY,
-	servico VARCHAR(50) NOT NULL,
-	preco DECIMAL(6,2) NOT NULL,
-	quant int NOT NULL
+	id_service INT AUTO_INCREMENT PRIMARY KEY,
+	se_service VARCHAR(50) NOT NULL,
+	se_price DECIMAL(6,2) NOT NULL,
+	se_qt INT NOT NULL,
+    id_usr INT,
+    CONSTRAINT fk_service_usr FOREIGN KEY (id_usr) REFERENCES usr (id_usr)
 );
 
 CREATE TABLE schedules(
-	id_schedules int AUTO_INCREMENT PRIMARY KEY,
-	horario TIME NOT NULL,
-    sc_data DATE NOT NULL,
-    sc_serv VARCHAR(50) NOT NULL,
-	preco DECIMAL(6,2) NOT NULL,
-	quant int NOT NULL
+	id_schedules INT AUTO_INCREMENT PRIMARY KEY,
+	sc_schedule TIME NOT NULL,
+    sc_date DATE NOT NULL,
+    sc_service VARCHAR(50) NOT NULL,
+	sc_price DECIMAL(6,2) NOT NULL,
+	sc_qt int NOT NULL,
+    id_usr INT,
+    CONSTRAINT fk_schedules_usr FOREIGN KEY (id_usr) REFERENCES usr (id_usr)
 );
 
+
 SELECT * FROM usr;
+SELECT * FROM service;
+SELECT * FROM schedules;
 
 TRUNCATE usr;
+TRUNCATE service;
+TRUNCATE schedules;
 
-DROP TABLE usr;
+
+DROP DATABASE hm;
