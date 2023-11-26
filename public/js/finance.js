@@ -43,3 +43,96 @@ for (var i = 0; i < buttons.length; i++) {
         updateTotal();
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+  
+function jwtDecode(t) {
+  let token = {};
+  token.raw = t;
+  token.header = JSON.parse(window.atob(t.split('.')[0]));
+  token.payload = JSON.parse(window.atob(t.split('.')[1]));
+  return token;
+}
+  
+function getTokenInfo(){
+  let tinfo = jwtDecode(getCookie("token"));
+  console.log(tinfo);
+  return tinfo.payload;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Função para fazer a requisição HTTP
+function getData() {
+    let id = (getTokenInfo()).id;
+  
+    fetch('/finance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id}),
+    })
+    .then((response) => {
+        if (response.ok) {
+            return response.text();
+        } else {
+            throw response;
+        }
+    })
+    .then((data) => {
+        console.log("cliente: "+data);
+    // Usuário cadastrado com sucesso
+    
+    })
+    .catch((response) => {
+    // Verifique o status da resposta
+        if (response.status === 409) {
+            // Email já cadastrado
+            document.getElementById("errormsg").style.display = "block";
+            document.getElementById("errormsgtxt").textContent= "Erro! Email já cadastrado!";
+        } else {
+            // Outro erro
+            document.getElementById("errormsg").style.display = "block";
+            document.getElementById("errormsgtxt").textContent= "Erro no servidor";
+        }
+    });
+}

@@ -175,6 +175,34 @@ app.post('/login', (req, res) => {
   });
 });
 
+//Finance
+
+app.post('/finance', async (req, res) => {
+  const id = req.body.id;
+
+  try {
+    select.select('usr', id, (error, dados) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Erro no servidor');
+        return;
+      }
+      if (dados) {
+        //console.log(dados);
+        
+        res.json(JSON.stringify(dados));
+      } else {
+        console.log("Sem dados");
+      }
+    });
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
 //Atualizar senha
 app.post('/editusr', async (req, res) => {
   const pass = req.body.pass;

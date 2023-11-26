@@ -1,9 +1,9 @@
 const connection = require('./connection')
 
-function select(email, pass, callback) {
-    let sql = 'SELECT * FROM usr WHERE email = ? AND pass = ?'
+function select(table, id_usr, callback) {
+    let sql = `SELECT * FROM ${table} WHERE id_usr = ?`;
     
-    connection.query(sql, [email, pass], function(error, results, fields) {
+    connection.query(sql, [id_usr], function(error, results, fields) {
         if (error) {
             callback(error, null); // Se houver erro, chame o callback com o erro
             return;
@@ -15,14 +15,13 @@ function select(email, pass, callback) {
             return;
         }
     
-        const dados = results[0];
-        console.log('Nome: ' + dados.nm_usr);
-        console.log('Email: ' + dados.email);
-        console.log('Pass: ' + dados.pass);
+        const dados = results;
+        console.log(dados);
 
         callback(null, dados); // Chame o callback com os dados
     });
 }
+
 
 function verifyemail(email,callback) {
     let sql = 'SELECT email FROM usr WHERE email = ?'
