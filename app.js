@@ -181,7 +181,7 @@ app.post('/finance', async (req, res) => {
   const id = req.body.id;
 
   try {
-    select.select('usr', id, (error, dados) => {
+    select.select('service', id, (error, dados) => {
       if (error) {
         console.error(error);
         res.status(500).send('Erro no servidor');
@@ -190,7 +190,7 @@ app.post('/finance', async (req, res) => {
       if (dados) {
         //console.log(dados);
         
-        res.json(JSON.stringify(dados));
+        res.json(dados);
       } else {
         console.log("Sem dados");
       }

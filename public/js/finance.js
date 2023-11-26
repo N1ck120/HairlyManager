@@ -1,4 +1,3 @@
-//cÓDIGO PARA SOMAR OS VALORES TOTAIS DA TABELA E ATRIBUIR AO H3, POR ALGUM MOTIVO NÃO ESTÁ FUNCIONANDO
 function updateTotal() {
     var rows = document.querySelectorAll('.table tbody tr');
     var total = 0;
@@ -7,67 +6,8 @@ function updateTotal() {
         total += rowTotal;
     }
     document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
+    console.log(total);
 }
-
-// Função para adicionar uma linha(Funciona mas ainda tenho que ver a logica pra adicionar valores diferentes a cada entrada do BD)
-function addRow() {
-    var table = document.querySelector('.table tbody');
-    var row = document.createElement('tr');
-    var html = `
-        <th scope="row">4</th>
-        <td>Novo Serviço</td>
-        <td>R$ 50</td>
-        <td><button style="background: none; border: none;" class="increase">-</button>1<button style="background: none; border: none;" class="increase">+</button></td>
-        <td>R$ 50</td>
-    `;
-    row.innerHTML = html;
-    table.appendChild(row);
-}
-
-// Função para remover uma linha, funciona mas provavelmente não vamos usar
-function removeRow(rowId) {
-    var row = document.querySelector(`.table tbody tr:nth-child(${rowId})`);
-    row.parentNode.removeChild(row);
-}
-
-//Código dos botões de + ao lado do valor da quantidade, também não está funcionando
-var buttons = document.querySelectorAll('.increase');
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function(event) {
-        var button = event.target;
-        var cell = button.parentNode;
-        var quantity = parseInt(cell.innerText, 10);
-        quantity++;
-        cell.innerText = quantity + ' ';
-        cell.appendChild(button);
-        updateTotal();
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -85,22 +25,9 @@ function jwtDecode(t) {
   
 function getTokenInfo(){
   let tinfo = jwtDecode(getCookie("token"));
-  console.log(tinfo);
   return tinfo.payload;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// Função para fazer a requisição HTTP
 function getData() {
     let id = (getTokenInfo()).id;
   
@@ -113,26 +40,33 @@ function getData() {
     })
     .then((response) => {
         if (response.ok) {
-            return response.text();
+            return response.json(); // Modifique aqui
         } else {
             throw response;
         }
     })
     .then((data) => {
         console.log("cliente: "+data);
-    // Usuário cadastrado com sucesso
+        console.log("tipo de dados: "+typeof data);
+
+        data = JSON.parse(data);
+
+        var tbody = document.querySelector('.table tbody');
+        data.forEach(function(item) {
+            var row = document.createElement('tr');
+            row.innerHTML = `
+                <th scope="row">${item.id_service}</th>
+                <td>${item.se_service}</td>
+                <td>R$ ${item.se_price}</td>
+                <td><button style="background: none; border: none;" class="increase">-</button>${item.se_qt}<button style="background: none; border: none;" class="increase">+</button></td>
+                <td>R$ ${item.se_price * item.se_qt}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        
+        updateTotal();
     
     })
-    .catch((response) => {
-    // Verifique o status da resposta
-        if (response.status === 409) {
-            // Email já cadastrado
-            document.getElementById("errormsg").style.display = "block";
-            document.getElementById("errormsgtxt").textContent= "Erro! Email já cadastrado!";
-        } else {
-            // Outro erro
-            document.getElementById("errormsg").style.display = "block";
-            document.getElementById("errormsgtxt").textContent= "Erro no servidor";
-        }
-    });
+    .catch(error => console.error('Error:', error));
 }
+
