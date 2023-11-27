@@ -10,6 +10,7 @@
   <link href="/css/style.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/js/employees.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
@@ -18,7 +19,7 @@
  <body>
   <div class="background" id="bkgd" style="background-image: url(/imagens/1.jpeg);"></div>
   <div class="content">
-    <nav class="navbar navbar-expand-lg" id="navbar">
+    <nav class="navbar sticky-top navbar-expand-lg" id="navbar">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">HairlyManager</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,20 +38,39 @@
             </li>
           </ul>
           <span class="navbar-text">
-  
             <button style="background: none; border: none;" id="logout" class="button" onclick="reset()">
               <img src="/assets/bootstrap-icons/box-arrow-left.svg" alt="sair" width="30px">
             </button>      
-  
             <a href="/editusr" id="username" style="text-decoration: none;"></a>
           </span>
         </div>
       </div>
     </nav>
     <h3 align="center" class="mb-3" style="color: white; margin-top: 20px;">Gestão de colaboradores</h3>
+    <div class="card">
+      <div class="card-body">
+        <table class="table" style=" --bs-table-bg: hsla(0, 0%, 100%, 0); --bs-table-border-color: hsl(0, 0%, 0%);">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Número</th>
+              <th scope="col">Salário</th>
+              <th scope="col">Ano de admissão</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+         </table>
+        <h3 id="total" style="text-align: center;">Custo total: R$ 00.00</h3>
+      </div>
+    </div>
+  </div>
 
   <script>
     window.onload = function() {
+      getData();
       randimg();
       loadInfo();
     }
