@@ -82,6 +82,9 @@ app.get('/signup', function(req, res) {
 
 //Funçôes Gerais
 
+const insertsch = require('./js/insert')
+const insertemp = require('./js/insert')
+const insertfin = require('./js/insert')
 const schedule = require('./js/select')
 const select = require('./js/select')
 const insert = require('./js/insert')
@@ -176,7 +179,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-//Finance
+//Tabela Finance
 
 app.post('/finance', async (req, res) => {
   const id = req.body.id;
@@ -203,7 +206,25 @@ app.post('/finance', async (req, res) => {
 });
 
 
-//Employees
+//Cad Finance
+
+app.post('/financecad', async (req, res) => {
+  const service = req.body.service;
+  const price = req.body.price;
+  const qt = req.body.qt;
+  const id = req.body.id;
+
+  try {
+    insertfin.insertfin(service, price, qt, id);
+    res.status(200).send('Linha cadastrada com sucesso!');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
+//Tabela Employees
 
 app.post('/employees', async (req, res) => {
   const id = req.body.id;
@@ -230,7 +251,27 @@ app.post('/employees', async (req, res) => {
 });
 
 
-//Schedules
+//Cad Employees
+
+app.post('/employeescad', async (req, res) => {
+  const name = req.body.name;
+  const phone = req.body.phone;
+  const salary = req.body.salary;
+  const year = req.body.year;
+  const id = req.body.id;
+
+  try {
+    insertemp.insertemp(name, phone, salary, year, id);
+    res.status(200).send('Linha cadastrada com sucesso!');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
+
+//Tabela Schedules
 
 app.post('/schedules', async (req, res) => {
   const id = req.body.id;
@@ -256,6 +297,25 @@ app.post('/schedules', async (req, res) => {
   }
 });
 
+
+//Cad Schedules
+
+app.post('/schedulescad', async (req, res) => {
+  const name = req.body.name;
+  const schedule = req.body.schedule;
+  const date = req.body.date;
+  const service = req.body.service;
+  const price = req.body.price;  
+  const id = req.body.id;
+
+  try {
+    insertsch.insertsch(name, schedule, date, service, price, id);
+    res.status(200).send('Linha cadastrada com sucesso!');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
+});
 
 //Atualizar senha
 app.post('/editusr', async (req, res) => {

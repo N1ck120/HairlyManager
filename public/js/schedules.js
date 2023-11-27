@@ -68,3 +68,40 @@ function getData() {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
+function cadsch(){
+    let id = (getTokenInfo()).id;
+    let name = document.getElementById('name').value;
+    let hora = document.getElementById('shedule').value;
+    let service = document.getElementById('service').value;
+    let price = document.getElementById('price').value;
+    let day = document.getElementById('day').value;
+    let month = document.getElementById('month').value;
+    let year = document.getElementById('year').value;
+    let schedule = hora + "00";
+    let date = year+"-"+month+"-"+day;
+    console.log(date);
+
+    fetch('/schedulescad', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name, schedule, service, price, date, id}),
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw response;
+        }
+      })
+      .then((data) => {
+        window.location.reload(true);        
+      })
+      .catch((response) => {
+        // Verifique o status da resposta
+     
+      });  
+}

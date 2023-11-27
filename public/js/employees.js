@@ -69,3 +69,33 @@ function getData() {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
+function cademp(){
+    let id = (getTokenInfo()).id;
+    let name = document.getElementById('name').value;
+    let phone = document.getElementById('phone').value;
+    let salary = document.getElementById('salary').value;
+    let year = document.getElementById('year').value;
+    fetch('/employeescad', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({name, phone, salary, year, id}),
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw response;
+        }
+      })
+      .then((data) => {
+        window.location.reload(true);        
+      })
+      .catch((response) => {
+        // Verifique o status da resposta
+     
+      });  
+}

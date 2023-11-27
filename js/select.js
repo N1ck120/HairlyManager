@@ -72,8 +72,6 @@ function verifyemail(email,callback) {
 
 function schedule(table, id_usr, callback) {
 
-    
-
     let sched = `SELECT *, DATE_FORMAT(sc_date, '%d/%m/%Y') AS 'dataform'
     FROM ${table} WHERE id_usr = ?`;
     

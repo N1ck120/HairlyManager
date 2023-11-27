@@ -1,3 +1,5 @@
+SHOW DATABASES;
+
 CREATE DATABASE IF NOT EXISTS hm;
 USE hm;
 
@@ -17,25 +19,56 @@ CREATE TABLE service(
     CONSTRAINT fk_service_usr FOREIGN KEY (id_usr) REFERENCES usr (id_usr)
 );
 
+CREATE TABLE employee(
+	id_employee INT AUTO_INCREMENT PRIMARY KEY,
+	em_name VARCHAR(50) NOT NULL,
+	em_phone VARCHAR(11) NOT NULL,
+	em_salary DECIMAL(7,2) NOT NULL,
+	em_year YEAR NOT NULL,
+    id_usr INT,
+    CONSTRAINT fk_employee_usr FOREIGN KEY (id_usr) REFERENCES usr (id_usr)
+);
+
 CREATE TABLE schedules(
 	id_schedules INT AUTO_INCREMENT PRIMARY KEY,
+    sc_name VARCHAR(50) NOT NULL,
 	sc_schedule TIME NOT NULL,
     sc_date DATE NOT NULL,
     sc_service VARCHAR(50) NOT NULL,
 	sc_price DECIMAL(6,2) NOT NULL,
-	sc_qt int NOT NULL,
     id_usr INT,
     CONSTRAINT fk_schedules_usr FOREIGN KEY (id_usr) REFERENCES usr (id_usr)
 );
 
+INSERT INTO service (se_service, se_price, se_qt, id_usr) VALUES
+('Blindado', 20.00, 5, 1),
+('Na régua', 10.00, 2, 1),
+('Calvão de cria', 50.00, 6, 1);
+
+INSERT INTO employee (em_name, em_phone, em_salary, em_year, id_usr) VALUES
+('Caos' ,119462946 ,3453.37 , 2023, 1),
+('Peter', 11910101010 , 50000.00, 2018, 1),
+('Senior', 11952261123, 80000.00, 2003, 1),
+('ChatGPÊTO', 10101010101, 1010.10, 2021, 1),
+('Little Bomb', 19450806123 , 99999.99, 1945, 1);
+
+INSERT INTO schedules (sc_name, sc_schedule, sc_date, sc_service, sc_price, id_usr) VALUES
+('Caddddddddddddos' ,'211800' ,'20231207' ,'calvar' , 202, 1);,
+('Lirou' ,'09:00', '2023-12-2' , 'calvar', 20, 1),
+('Pimpoio' ,'08:18', '2023-11-29','calvar', 23, 1),
+('pedro' ,'22:08', '2023-11-30', 'calvar', 21, 1),
+('chatgpeto' ,'11:18', '2023-11-28' ,'calvar', 45, 1);
+
 
 SELECT * FROM usr;
 SELECT * FROM service;
+SELECT * FROM employee;
 SELECT * FROM schedules;
 
 TRUNCATE usr;
 TRUNCATE service;
-TRUNCATE schedules;
 
+DROP TABLE schedules;
+DROP TABLE employee;
 
 DROP DATABASE hm;

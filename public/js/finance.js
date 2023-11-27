@@ -40,14 +40,14 @@ function getData() {
     })
     .then((response) => {
         if (response.ok) {
-            return response.json(); // Modifique aqui
+            return response.json();
         } else {
             throw response;
         }
     })
     .then((data) => {
-        console.log("cliente: "+data);
-        console.log("tipo de dados: "+typeof data);
+        //console.log("cliente: "+data);
+        //console.log("tipo de dados: "+typeof data);
 
         data = JSON.parse(data);
 
@@ -58,7 +58,7 @@ function getData() {
                 <th scope="row">${item.id_service}</th>
                 <td>${item.se_service}</td>
                 <td>R$ ${item.se_price}</td>
-                <td><button style="background: none; border: none;" class="increase">-</button>${item.se_qt}<button style="background: none; border: none;" class="increase">+</button></td>
+                <td>${item.se_qt}</td>
                 <td>R$ ${item.se_price * item.se_qt}</td>
             `;
             tbody.appendChild(row);
@@ -70,3 +70,31 @@ function getData() {
     .catch(error => console.error('Error:', error));
 }
 
+
+function cadfin(){
+    let id = (getTokenInfo()).id;
+    let service = document.getElementById('service').value;
+    let price = document.getElementById('price').value;
+    let qt = document.getElementById('qt').value;
+    fetch('/financecad', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({service, price, qt, id}),
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw response;
+        }
+      })
+      .then((data) => {
+        window.location.reload(true);        
+      })
+      .catch((response) => {
+        // Verifique o status da resposta
+     
+      });  
+}
