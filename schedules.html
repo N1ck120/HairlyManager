@@ -10,6 +10,7 @@
   <link href="/css/style.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="/js/schedules.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
@@ -49,8 +50,87 @@
     </nav>
     <h3 align="center" class="mb-3" style="color: white; margin-top: 20px;">Gestão de horários</h3>
 
+    <div class="card">
+      <div class="card-body">
+        <table class="table" style=" --bs-table-bg: hsla(0, 0%, 100%, 0); --bs-table-border-color: hsl(0, 0%, 0%);">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome Cliente</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Serviço</th>
+              <th scope="col">Preço</th>
+              <th scope="col">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+         </table>
+        <!-- <h3 id="total" style="text-align: center;">Custo total: R$ 00.00</h3> -->
+      </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+      <h3 align="center" class="mb-3" style="color: black; margin-top: 20px;">Adicionar horário</h3>
+      <div class="card-body">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name" placeholder="name@example.com" maxlength="60">
+          <label for="floatingInput">Nome do cliente</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="email" placeholder="name@example.com" maxlength="50">
+          <label for="floatingInput">Horario</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="email" placeholder="name@example.com" maxlength="50">
+          <label for="floatingInput">Serviço</label>
+        </div>
+        
+        <div class="form-floating mb-3" style="flex-grow: 1; margin-right: 5px;">
+          <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+          <label for="floatingPassword">Preço</label>
+        </div>
+
+        <div style="display: flex; align-items: center;" class="mb-3">
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Dia</label>
+          </div>
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Mês</label>
+          </div>
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Ano</label>
+          </div>
+        </div>
+
+        <div id="errormsg" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
+          <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
+          <div id="errormsgtxt" style="display: inline;">
+          </div>
+        </div>
+
+        <div id="sucessmsg" style="display: none; margin-bottom: 5px;" class="alert alert-success align-items-center" role="alert">
+          <img class="img-botao-config" src="assets/bootstrap-icons/check2-circle.svg" style="width: 20px; margin-right: 5px;">
+          <div id="sucessmsgtxt" style="display: inline;">
+          </div>
+        </div>
+
+        <div style="text-align: center; padding-left: 10px; padding-right: 10px;">
+          <button style="--bs-btn-padding-x: 5rem;" type="button" class="btn btn-outline-primary" onclick="enviarDados()">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+
   <script>
     window.onload = function() {
+      getData();
       randimg();
       loadInfo();
     }

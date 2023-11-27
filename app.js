@@ -82,6 +82,7 @@ app.get('/signup', function(req, res) {
 
 //Funçôes Gerais
 
+const schedule = require('./js/select')
 const select = require('./js/select')
 const insert = require('./js/insert')
 const verifyemail = require('./js/select')
@@ -216,6 +217,33 @@ app.post('/employees', async (req, res) => {
       }
       if (dados) {
         //console.log(dados);
+        res.json(JSON.stringify(dados));
+      } else {
+        console.log("Sem dados");
+      }
+    });
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+
+//Schedules
+
+app.post('/schedules', async (req, res) => {
+  const id = req.body.id;
+
+  try {
+    schedule.schedule('schedules', id, (error, dados) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Erro no servidor');
+        return;
+      }
+      if (dados) {
+        console.log(dados);
         res.json(JSON.stringify(dados));
       } else {
         console.log("Sem dados");

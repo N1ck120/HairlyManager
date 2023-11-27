@@ -68,6 +68,36 @@ function verifyemail(email,callback) {
     });
 }
 
+
+
+function schedule(table, id_usr, callback) {
+
+    
+
+    let sched = `SELECT *, DATE_FORMAT(sc_date, '%d/%m/%Y') AS 'dataform'
+    FROM ${table} WHERE id_usr = ?`;
+    
+    connection.query(sched, [id_usr], function(error, results, fields) {
+        if (error) {
+            callback(error, null); // Se houver erro, chame o callback com o erro
+            return;
+        }
+    
+        if (results.length === 0) {
+            console.log('Nenhum dado encontrado');
+            callback(null, null); // Nenhum dado encontrado, chame o callback com null
+            return;
+        }
+    
+        const dados = results;
+        console.log(dados);
+
+        callback(null, dados); // Chame o callback com os dados
+    });
+}
+
+
 exports.select = select;
 exports.count = count;
 exports.verifyemail = verifyemail;
+exports.schedule = schedule;
