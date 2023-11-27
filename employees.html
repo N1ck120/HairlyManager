@@ -1,27 +1,35 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="icon" href="/assets/img/icon.ico" type="image/x-icon">
+
   <link href="/css/bkg.css" rel="stylesheet" type="text/css"/>
   <link href="/css/other.css" rel="stylesheet" type="text/css"/>
   <link href="/css/index.css" rel="stylesheet" type="text/css"/>
   <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+
   <script src="/js/employees.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
+
   <title>Employees</title>
  </head>
+
  <body>
   <div class="background" id="bkgd" style="background-image: url(/imagens/1.jpeg);"></div>
   <div class="content">
     <nav class="navbar sticky-top navbar-expand-lg" id="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">HairlyManager</a>
+        <a class="navbar-brand" href="#">Hairly Manager</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,7 +54,9 @@
         </div>
       </div>
     </nav>
-    <h3 align="center" class="mb-3" style="color: white; margin-top: 20px;">Gestão de colaboradores</h3>
+
+    <h3 align="center" class="mb-3" style="color: white; margin-top: 20px;">Gestão de Colaboradores</h3>
+    
     <div class="card">
       <div class="card-body">
         <table class="table" style=" --bs-table-bg: hsla(0, 0%, 100%, 0); --bs-table-border-color: hsl(0, 0%, 0%);">
@@ -57,13 +67,68 @@
               <th scope="col">Número</th>
               <th scope="col">Salário</th>
               <th scope="col">Ano de admissão</th>
-              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
          </table>
         <h3 id="total" style="text-align: center;">Custo total: R$ 00.00</h3>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+      <h3 align="center" class="mb-3" style="color: black; margin-top: 20px;">Cadastrar Colaborador</h3>
+      <div class="card-body">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name" placeholder="name@example.com" maxlength="60">
+          <label for="floatingInput">Nome</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="email" placeholder="name@example.com" maxlength="50">
+          <label for="floatingInput">Número</label>
+        </div>
+        
+        <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+          <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+          <label for="floatingPassword">Salário</label>
+        </div>
+
+        <br>
+        <p style="text-align: center;">Data de Admissão</p>
+
+        <div style="display: flex; align-items: center;" class="mb-3">
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Dia</label>
+          </div>
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Mês</label>
+          </div>
+          <div class="form-floating" style="flex-grow: 1; margin-right: 5px;">
+            <input type="number" class="form-control" id="pass" placeholder="Password" maxlength="100">
+            <label for="floatingPassword">Ano</label>
+          </div>
+        </div>
+
+        <div id="errormsg" style="display: none; margin-bottom: 5px;" class="alert alert-danger align-items-center" role="alert">
+          <img class="img-botao-config" src="assets/bootstrap-icons/exclamation-triangle.svg" style="width: 20px; margin-right: 5px;">
+          <div id="errormsgtxt" style="display: inline;">
+          </div>
+        </div>
+
+        <div id="sucessmsg" style="display: none; margin-bottom: 5px;" class="alert alert-success align-items-center" role="alert">
+          <img class="img-botao-config" src="assets/bootstrap-icons/check2-circle.svg" style="width: 20px; margin-right: 5px;">
+          <div id="sucessmsgtxt" style="display: inline;">
+          </div>
+        </div>
+
+        <div style="text-align: center; padding-left: 10px; padding-right: 10px;">
+          <button style="--bs-btn-padding-x: 5rem;" type="button" class="btn btn-outline-primary" onclick="enviarDados()">Cadastrar</button>
+        </div>
       </div>
     </div>
   </div>

@@ -60,7 +60,6 @@ function getData() {
                 <td>${item.em_phone}</td>
                 <td>R$${item.em_salary}</td>
                 <td>${item.em_year}</td>
-                <td>${item.em_status}</td>
             `;
             tbody.appendChild(row);
         });
@@ -70,5 +69,3 @@ function getData() {
     })
     .catch(error => console.error('Error:', error));
 }
-
-
