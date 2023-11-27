@@ -9,6 +9,7 @@
   <link href="/css/index.css" rel="stylesheet" type="text/css"/>
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/common.js"></script>
   <script src="/js/random.js"></script>
@@ -87,12 +88,13 @@
         </div>
 
         <div class="col">
-          <a class="cardlink" href="#">
+          <a class="cardlink">
           <div class="card cardlhover">
             <img src="/assets/img/download-circle.svg" style="width: 20%; align-self: center; margin: 15px;" class="card-img-top svg" alt="...">
             <div class="card-body" style="min-height: 150px;">
               <h5 class="card-title">Gerar relatório</h5>
-              <p class="card-text">Gerar PDF do desmpenho do negócio no mês</p>
+              <p class="card-text">Gerar PDF do negócio no mês</p>
+              <button style="--bs-btn-padding-x: 5rem;" type="button" class="btn btn-outline-primary" onclick="pdf()" >Gerar</button>
             </div>
           </div>
           </a>
@@ -128,6 +130,51 @@
     window.onload = function() {
       randimg();
       loadInfo();
+    }
+
+    function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+  
+function jwtDecode(t) {
+  let token = {};
+  token.raw = t;
+  token.header = JSON.parse(window.atob(t.split('.')[0]));
+  token.payload = JSON.parse(window.atob(t.split('.')[1]));
+  return token;
+}
+  
+function getTokenInfo(){
+  let tinfo = jwtDecode(getCookie("token"));
+  console.log(tinfo);
+  return tinfo.payload;
+}
+
+
+
+    function pdf(){
+      const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let nome = (getTokenInfo()).name;
+            let email = (getTokenInfo()).email;
+            let cidade = "São Paulo";
+            let dataAtual = new Date();
+            let dataFormatada = dataAtual.getDate() + "/" + (dataAtual.getMonth() + 1) + "/" + dataAtual.getFullYear();
+
+
+            doc.text(`Informações da conta`, 10, 10);
+
+            doc.text(`Data: ${dataFormatada}`, 10, 20);
+            doc.text(`Nome: ${nome}`, 10, 25);
+            doc.text(`Email: ${email}`, 10, 30);
+            // doc.text(`Total lucro: ${lucro}`, 10, 50);
+            // doc.text(`Total despesas: ${despesas}`, 10, 60);
+            
+
+            doc.save('relatorio.pdf');
     }
   </script>
  </body>
